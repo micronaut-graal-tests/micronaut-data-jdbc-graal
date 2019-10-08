@@ -22,3 +22,5 @@ build
 target
 
 .DS_Store
+
+mn-data-jdbc-graal*
