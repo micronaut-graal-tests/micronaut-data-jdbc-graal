@@ -1,25 +1,48 @@
-# Micronaut Data
+# Micronaut Data JDBC Java Example
 
-[![Maven Central](https://img.shields.io/maven-central/v/io.micronaut.data/micronaut-data-model.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22io.micronaut.data%22%20AND%20a:%22micronaut-data-model%22)
-[![](https://github.com/micronaut-projects/micronaut-data/workflows/Java%20CI/badge.svg)](https://github.com/micronaut-projects/micronaut-data/actions)
+This example demonstrates Micronaut Data JDBC for Java.
 
-Micronaut Data is a database access toolkit that uses Ahead of Time (AoT) compilation to pre-compute queries for repository interfaces that are then executed by a thin, lightweight runtime layer.
+## Example Structure
 
-Micronaut Data is inspired by [GORM](https://gorm.grails.org) and [Spring Data](https://spring.io/projects/spring-data), however improves on those solutions in the following ways:
+* `src/main/java/example/domain` - Entities that map onto database tables
+* `src/main/java/example/repositories` - Micronaut Data Repository interfaces
+* `src/main/java/example/controllers` - Controllers that are injected with the repository interfaces
+* `src/test/java/example` - JUnit 5 tests that test the example.
 
-* *Compilation Time model* - Both GORM and Spring Data maintain a runtime meta-model that uses reflection to model relationships between entities. This model consumes significant memory and memory requirements grow as your application size grows. The problem is worse when combined with Hibernate which maintains its own meta-model as you end up with duplicate meta-models. Micronaut Data instead moves this model into the compiler.
-* *No query translation* - Both GORM and Spring Data use regular expressions and pattern matching in combination with runtime generated proxies to translate a method definition on a Java interface into a query at runtime. No such runtime translation exists in Micronaut Data and this work is carried out by the Micronaut compiler at compilation time.
-* *No Reflection or Runtime Proxies* - Micronaut Data uses no reflection or runtime proxies, resulting in better performance, smaller stack traces and reduced memory consumption due to a complete lack of reflection caches (Note that the backing implementation, for example Hibernate, may use reflection).
-* *Type Safety* - Micronaut Data will actively check at compile time that a repository method can be implemented and fail compilation if it cannot.
+## Example Configuration
 
-See also the [Micronaut Data Announcement](https://objectcomputing.com/news/2019/07/18/unleashing-predator-precomputed-data-repositories) for details about how and why Micronaut Data was built.
+The example is configured to use an in-memory H2 database via `src/main/resources/application.yml`.
 
-## Documentation
+The schema is set to generate automatically using the `schema-generate: CREATE_DROP` setting.
 
-See the [Documentation](https://micronaut-projects.github.io/micronaut-data/latest/guide/) for more information. 
+Query logging is enabled in `src/main/resources/logback.xml` via:
 
-See the [Snapshot Documentation](https://micronaut-projects.github.io/micronaut-data/snapshot/guide/) for the current development docs.
+```xml
+<logger name="io.micronaut.data.query" level="debug" />
+```
 
-## Examples
+## Running the example
 
-Examples can be found in the [examples](https://github.com/micronaut-projects/micronaut-data/tree/master/examples) directory.
+You can run the tests with either `./gradlew test` for Gradle or `./mvnw test` for Maven.
+
+The application can be run with either `./gradlew run` or `./mvnw compile exec:exec`. 
+
+Alternatively you can import the example into either IntelliJ, Visual Studio Code or Eclipse.
+
+## Native Image
+
+A native image can be built by installing GraalVM 19.1 or above and running the following for Gradle:
+
+```bash
+$ ./gradlew assemble 
+$ native-image --no-server -cp build/libs/example-jdbc-0.1-all.jar
+```
+
+Or for Maven:
+
+```bash
+$ ./mvnw package 
+$ native-image --no-server -cp target/example-jdbc-0.1.jar
+```
+
+ 
