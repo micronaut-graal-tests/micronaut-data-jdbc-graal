@@ -8,17 +8,14 @@ version "0.1"
 group "example.jdbc"
 
 repositories {
-    maven { url "https://jcenter.bintray.com" }
+    jcenter()
+    mavenCentral()
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/"}
 }
 
 configurations {
     // for dependencies that are needed for development only
     developmentOnly 
-}
-
-ext {
-    micronautDataVersion = "1.0.0.M3"
-    micronautVersion = "1.2.3"
 }
 
 dependencies {
