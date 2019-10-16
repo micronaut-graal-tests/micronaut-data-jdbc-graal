@@ -12,7 +12,7 @@ import io.micronaut.data.model.Pageable;
 import io.micronaut.data.model.query.builder.sql.Dialect;
 import io.micronaut.data.repository.PageableRepository;
 
-@JdbcRepository(dialect = Dialect.H2)
+@JdbcRepository(dialect = Dialect.SQL_SERVER)
 public interface PetRepository extends PageableRepository<Pet, UUID> {
 
     List<NameDTO> list(Pageable pageable);
