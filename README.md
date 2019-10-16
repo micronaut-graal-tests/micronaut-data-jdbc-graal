@@ -1,6 +1,11 @@
 # Micronaut Data JDBC Graal #
 
-Test application for Micronaut Data JDBC and GraalVM that uses H2.
+Test application for Micronaut Data JDBC and GraalVM that uses Oracle.
+
+To run Oracle in Docker:
+```
+docker run -it --rm -p 1521:1521 wnameless/oracle-xe-11g-r2
+```
 
 To test the application:
 
