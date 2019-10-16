@@ -1,0 +1,8 @@
+{
+  "resources":[
+    {"pattern":"META-INF/services/java.sql.Driver"},
+    {"pattern":"oracle/sql/converter_xcharset/lx20002.glb"},
+    {"pattern":"oracle/sql/converter_xcharset/lx2001f.glb"},
+    {"pattern":"oracle/sql/converter_xcharset/lx200b2.glb"}
+  ]
+}
