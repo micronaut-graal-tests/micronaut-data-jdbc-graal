@@ -15,7 +15,7 @@ import java.util.UUID;
 @JdbcRepository(dialect = Dialect.ORACLE)
 public interface PetRepository extends PageableRepository<Pet, UUID> {
 
-    List<NameDTO> list(Pageable pageable);
+    List<NameDTO> list();
 
     @Join("owner")
     Optional<Pet> findByName(String name);
