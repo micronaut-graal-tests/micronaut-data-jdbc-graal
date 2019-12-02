@@ -1,24 +1,26 @@
 package example;
 
-import java.util.Arrays;
-
-import javax.inject.Singleton;
-
-import io.micronaut.core.annotation.TypeHint;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import example.domain.Owner;
 import example.domain.Pet;
 import example.domain.Pet.PetType;
 import example.repositories.OwnerRepository;
 import example.repositories.PetRepository;
 import io.micronaut.context.event.StartupEvent;
+import io.micronaut.core.annotation.TypeHint;
 import io.micronaut.runtime.Micronaut;
 import io.micronaut.runtime.event.annotation.EventListener;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.inject.Singleton;
+import java.util.Arrays;
 
 @Singleton
-@TypeHint(typeNames = {"org.h2.Driver", "org.h2.mvstore.db.MVTableEngine"})
+@TypeHint(value = {
+        org.mariadb.jdbc.util.Options.class,
+        org.mariadb.jdbc.Driver.class
+},
+accessType = TypeHint.AccessType.ALL_PUBLIC)
 public class Application {
     private static final Logger LOG = LoggerFactory.getLogger(Application.class);
 

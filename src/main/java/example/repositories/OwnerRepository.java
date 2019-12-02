@@ -1,14 +1,14 @@
 package example.repositories;
 
-import java.util.List;
-import java.util.Optional;
-
 import example.domain.Owner;
 import io.micronaut.data.jdbc.annotation.JdbcRepository;
 import io.micronaut.data.model.query.builder.sql.Dialect;
 import io.micronaut.data.repository.CrudRepository;
 
-@JdbcRepository(dialect = Dialect.H2)
+import java.util.List;
+import java.util.Optional;
+
+@JdbcRepository(dialect = Dialect.MYSQL)
 public interface OwnerRepository extends CrudRepository<Owner, Long> {
 
     @Override
