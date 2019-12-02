@@ -37,7 +37,8 @@ dependencies {
     implementation "jakarta.persistence:jakarta.persistence-api:2.2.2"
     implementation "io.micronaut.data:micronaut-data-jdbc:$micronautDataVersion"
     runtime "ch.qos.logback:logback-classic:1.2.3"
-    implementation 'com.microsoft.sqlserver:mssql-jdbc:7.2.2.jre8'
+    implementation 'com.microsoft.sqlserver:mssql-jdbc:7.4.1.jre8'
+
     runtime "io.micronaut.configuration:micronaut-jdbc-tomcat"
 
     testAnnotationProcessor "io.micronaut:micronaut-inject-java"
