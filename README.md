@@ -1,6 +1,7 @@
 # Micronaut Data JDBC Graal #
 
-Test application for Micronaut Data JDBC and GraalVM that uses H2.
+**The master branch is not used anymore. Checkout branches for each specific database: `h2`, `postgres`, `oracle` and
+ `mysql`.**
 
 To test the application:
 
