@@ -15,11 +15,22 @@ repositories {
 
 configurations {
     // for dependencies that are needed for development only
-    developmentOnly 
+    developmentOnly
+
+    all {
+        resolutionStrategy {
+            eachDependency { DependencyResolveDetails details ->
+                //specifying a fixed version for all libraries with 'org.gradle' group
+                if (details.requested.group == 'io.micronaut.data') {
+                    details.useVersion micronautDataVersion
+                }
+            }
+        }
+    }
 }
 
 dependencies {
-    implementation platform("io.micronaut:micronaut-bom:$micronautVersion")     
+    implementation platform("io.micronaut:micronaut-bom:$micronautVersion")
     annotationProcessor platform("io.micronaut:micronaut-bom:$micronautVersion")
     testAnnotationProcessor platform("io.micronaut:micronaut-bom:$micronautVersion")
         
