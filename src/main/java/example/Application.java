@@ -6,7 +6,6 @@ import example.domain.Pet.PetType;
 import example.repositories.OwnerRepository;
 import example.repositories.PetRepository;
 import io.micronaut.context.event.StartupEvent;
-import io.micronaut.core.annotation.TypeHint;
 import io.micronaut.runtime.Micronaut;
 import io.micronaut.runtime.event.annotation.EventListener;
 import org.slf4j.Logger;
@@ -16,11 +15,6 @@ import javax.inject.Singleton;
 import java.util.Arrays;
 
 @Singleton
-@TypeHint(value = {
-        org.mariadb.jdbc.util.Options.class,
-        org.mariadb.jdbc.Driver.class
-},
-accessType = TypeHint.AccessType.ALL_PUBLIC)
 public class Application {
     private static final Logger LOG = LoggerFactory.getLogger(Application.class);
 
