@@ -24,6 +24,9 @@ configurations {
                 if (details.requested.group == 'io.micronaut.data') {
                     details.useVersion micronautDataVersion
                 }
+                if ((details.requested.group == 'io.micronaut') && details.requested.name == 'micronaut-jdbc') {
+                    details.useVersion micronautSqlVersion
+                }
             }
         }
     }
