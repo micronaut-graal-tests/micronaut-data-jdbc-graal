@@ -1,21 +1,20 @@
 package example.repositories;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
-
 import example.domain.NameDTO;
 import example.domain.Pet;
 import io.micronaut.data.annotation.Join;
 import io.micronaut.data.jdbc.annotation.JdbcRepository;
-import io.micronaut.data.model.Pageable;
 import io.micronaut.data.model.query.builder.sql.Dialect;
-import io.micronaut.data.repository.PageableRepository;
+import io.micronaut.data.repository.CrudRepository;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @JdbcRepository(dialect = Dialect.SQL_SERVER)
-public interface PetRepository extends PageableRepository<Pet, UUID> {
+public interface PetRepository extends CrudRepository<Pet, UUID> {
 
-    List<NameDTO> list(Pageable pageable);
+    List<NameDTO> list();
 
     @Join("owner")
     Optional<Pet> findByName(String name);

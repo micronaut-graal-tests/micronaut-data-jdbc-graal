@@ -20,8 +20,8 @@ class PetController {
     }
 
     @Get("/")
-    List<NameDTO> all(Pageable pageable) {
-        return petRepository.list(pageable);
+    List<NameDTO> all() {
+        return petRepository.list();
     }
 
     @Get("/{name}")
