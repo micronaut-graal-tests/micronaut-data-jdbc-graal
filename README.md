@@ -1,7 +1,7 @@
 # Micronaut Data JDBC Graal #
 
-:warning: **The master branch is not used anymore.** Checkout branches for each specific database: `h2`, `postgres`, `oracle` and
- `mariadb` and Micronaut versions.
+:warning: **The master branch is not used anymore.** Checkout branches for each specific database: `h2`, `postgres`,
+`oracle`, `mariadb` and `sqlserver` and the differente Micronaut versions.
 
 To test the application:
 
