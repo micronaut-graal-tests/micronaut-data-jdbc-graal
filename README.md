@@ -1,6 +1,6 @@
-# Micronaut Data JDBC Graal #
+# Micronaut JOOQ Graal #
 
-Test application for Micronaut Data JDBC and GraalVM that uses H2.
+Test application for Micronaut JOOQ and GraalVM that uses H2.
 
 To test the application:
 

@@ -1,58 +1,36 @@
 package example.domain;
 
-import io.micronaut.core.annotation.Creator;
-import io.micronaut.data.annotation.AutoPopulated;
+import io.micronaut.core.annotation.Introspected;
 
-import javax.annotation.Nullable;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import java.util.UUID;
 
-@Entity
+@Introspected
 public class Pet {
-
-    @Id
-    @AutoPopulated
     private UUID id;
     private String name;
-    @ManyToOne
     private Owner owner;
-    private PetType type = PetType.DOG;
 
-    @Creator
-    public Pet(String name, @Nullable Owner owner) {
-        this.name = name;
-        this.owner = owner;
+    public UUID getId() {
+        return id;
     }
 
-    public Owner getOwner() {
-        return owner;
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     public String getName() {
         return name;
     }
 
-    public UUID getId() {
-        return id;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public PetType getType() {
-		return type;
-	}
-
-	public void setType(PetType type) {
-		this.type = type;
-	}
-
-	public void setId(UUID id) {
-        this.id = id;
+    public Owner getOwner() {
+        return owner;
     }
 
-
-    public enum PetType {
-        DOG,
-        CAT
+    public void setOwner(Owner owner) {
+        this.owner = owner;
     }
 }

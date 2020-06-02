@@ -1,14 +1,13 @@
 micronaut:
   application:
-    name: example-jdbc
+    name: example-jooq
 jackson:
   bean-introspection-module: true
 ---
 datasources:
   default:
-    url: jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+    url: 'jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE;INIT=CREATE TABLE IF NOT EXISTS owner( id INT AUTO_INCREMENT, name VARCHAR(255) NOT NULL, age INT NOT NULL, CONSTRAINT owner_pk PRIMARY KEY (id))\; CREATE TABLE IF NOT EXISTS pet ( id UUID DEFAULT random_uuid() NOT NULL, name VARCHAR(255) NOT NULL, owner_id INT NOT NULL, CONSTRAINT pet_pk PRIMARY KEY (id), CONSTRAINT pet_owner_id_fk FOREIGN KEY (owner_id) REFERENCES owner )\;'
     driverClassName: org.h2.Driver
     username: sa
     password: ''
-    schema-generate: CREATE_DROP
     dialect: H2

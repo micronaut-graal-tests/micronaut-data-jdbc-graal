@@ -1,5 +1,5 @@
 profile: service
-defaultPackage: example.jdbc
+defaultPackage: example.jooq
 ---
 testFramework: junit
 sourceLanguage: java

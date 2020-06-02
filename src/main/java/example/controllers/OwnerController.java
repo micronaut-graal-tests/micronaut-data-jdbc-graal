@@ -1,18 +1,16 @@
 package example.controllers;
 
-import java.util.List;
-import java.util.Optional;
-
-import javax.validation.constraints.NotBlank;
-
 import example.domain.Owner;
 import example.repositories.OwnerRepository;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 
+import javax.validation.constraints.NotBlank;
+import java.util.List;
+import java.util.Optional;
+
 @Controller("/owners")
 class OwnerController {
-
     private final OwnerRepository ownerRepository;
 
     OwnerController(OwnerRepository ownerRepository) {

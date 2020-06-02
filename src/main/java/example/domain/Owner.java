@@ -1,43 +1,34 @@
 package example.domain;
 
-import io.micronaut.core.annotation.Creator;
+import io.micronaut.core.annotation.Introspected;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
-@Entity
+@Introspected
 public class Owner {
-
-    @Id
-    @GeneratedValue
-    private Long id;
+    private Integer id;
     private String name;
-    private int age;
+    private Integer age;
 
-    @Creator
-    public Owner(String name) {
-        this.name = name;
+    public Integer getId() {
+        return id;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
         return name;
     }
 
-    public Long getId() {
-        return id;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public Integer getAge() {
+        return age;
     }
-  
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
 }

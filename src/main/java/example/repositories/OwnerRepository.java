@@ -1,18 +1,30 @@
 package example.repositories;
 
+import example.domain.Owner;
+import static example.domain.Tables.OWNER;
+import org.jooq.DSLContext;
+
+import javax.inject.Singleton;
 import java.util.List;
 import java.util.Optional;
 
-import example.domain.Owner;
-import io.micronaut.data.jdbc.annotation.JdbcRepository;
-import io.micronaut.data.model.query.builder.sql.Dialect;
-import io.micronaut.data.repository.CrudRepository;
+@Singleton
+public class OwnerRepository {
+    private final DSLContext context;
 
-@JdbcRepository(dialect = Dialect.H2)
-public interface OwnerRepository extends CrudRepository<Owner, Long> {
+    public OwnerRepository(DSLContext context) {
+        this.context = context;
+    }
 
-    @Override
-    List<Owner> findAll();
+    public List<Owner> findAll() {
+        return context.selectFrom(OWNER).fetchInto(Owner.class);
+    }
 
-    Optional<Owner> findByName(String name);
+    public Optional<Owner> findByName(String name) {
+        Owner owner = context.selectFrom(OWNER)
+                .where(OWNER.NAME.eq(name))
+                .fetchAnyInto(Owner.class);
+
+        return Optional.ofNullable(owner);
+    }
 }
