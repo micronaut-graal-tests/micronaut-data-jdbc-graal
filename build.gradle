@@ -36,6 +36,7 @@ dependencies {
     implementation "io.micronaut:micronaut-http-server-netty"
     implementation "jakarta.persistence:jakarta.persistence-api:2.2.2"
     implementation "io.micronaut.configuration:micronaut-jooq:$micronautSqlVersion"
+    implementation "org.simpleflatmapper:sfm-jdbc:8.2.3"
 
     runtime "io.micronaut.configuration:micronaut-jdbc-tomcat"
     runtime "ch.qos.logback:logback-classic:1.2.3"

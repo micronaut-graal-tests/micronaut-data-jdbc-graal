@@ -8,7 +8,6 @@ import java.util.UUID;
 public class Pet {
     private UUID id;
     private String name;
-    private Owner owner;
 
     public UUID getId() {
         return id;
@@ -24,13 +23,5 @@ public class Pet {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Owner getOwner() {
-        return owner;
-    }
-
-    public void setOwner(Owner owner) {
-        this.owner = owner;
     }
 }

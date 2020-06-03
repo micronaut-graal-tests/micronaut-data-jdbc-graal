@@ -1,11 +1,13 @@
 package example.controllers;
 
 import example.domain.Owner;
+import example.domain.OwnerWithPets;
 import example.repositories.OwnerRepository;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 
 import javax.validation.constraints.NotBlank;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,7 +25,7 @@ class OwnerController {
     }
 
     @Get("/{name}")
-    Optional<Owner> byName(@NotBlank String name) {
+    Optional<OwnerWithPets> byName(@NotBlank String name) throws SQLException {
         return ownerRepository.findByName(name);
     }
 }
