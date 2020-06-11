@@ -50,7 +50,7 @@ dependencies {
         exclude group: 'io.micronaut', module: 'micronaut-jdbc'
     }
 
-    runtime "org.mariadb.jdbc:mariadb-java-client:2.5.2"
+    runtimeOnly "mysql:mysql-connector-java"
     runtime "ch.qos.logback:logback-classic:1.2.3"
     runtime "io.micronaut.sql:micronaut-jdbc-hikari"
 
