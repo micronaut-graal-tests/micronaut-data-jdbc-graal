@@ -1,10 +1,10 @@
 # Micronaut Data JDBC Graal #
 
-Test application for Micronaut Data JDBC and GraalVM that uses MariaDB.
+Test application for Micronaut Data JDBC and GraalVM that uses MySQL.
 
-To run MariaDB in Docker:
+To run MySQL in Docker:
 ```
-docker run -p 3306:3306 -it --rm -e MYSQL_ROOT_PASSWORD=secret -e MYSQL_DATABASE=pets mariadb:10.4.8-bionic
+docker run -it --rm -p 3306:3306 -e MYSQL_ROOT_PASSWORD=secret -e MYSQL_DATABASE=pets mysql:8.0.20
 ```
 
 To test the application:
