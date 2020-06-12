@@ -51,7 +51,7 @@ dependencies {
     }
 
     runtimeOnly "mysql:mysql-connector-java"
-    runtime "ch.qos.logback:logback-classic:1.2.3"
+    runtime "ch.qos.logback:logback-classic"
     runtime "io.micronaut.sql:micronaut-jdbc-hikari"
 
     testAnnotationProcessor "io.micronaut:micronaut-inject-java"
