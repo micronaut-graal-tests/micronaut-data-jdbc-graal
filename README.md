@@ -2,7 +2,7 @@
 
 :warning: **The master branch is not used anymore.**
 
-Checkout branches for each specific database: `h2`, `postgres`, `oracle`, `mariadb` and `sqlserver`.
+Checkout branches for each specific database: `h2`, `postgres`, `oracle`, `mariadb`, `sqlserver` and `mysql`.
 
 To test the application:
 
