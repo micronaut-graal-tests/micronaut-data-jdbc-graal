@@ -25,7 +25,6 @@ configurations {
                     details.useVersion micronautDataVersion
                 }
             }
-//            force "io.micronaut:micronaut-jdbc:2.3.0"
         }
     }
 }
