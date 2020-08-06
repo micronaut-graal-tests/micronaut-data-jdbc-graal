@@ -49,7 +49,7 @@ dependencies {
     compileOnly "org.graalvm.nativeimage:svm"
 
     runtimeOnly("ch.qos.logback:logback-classic")
-    runtimeOnly("org.mariadb.jdbc:mariadb-java-client:2.5.2")
+    runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
     runtimeOnly("io.micronaut.sql:micronaut-jdbc-hikari")
 
     testAnnotationProcessor(enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion"))
