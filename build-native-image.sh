@@ -1,3 +1,2 @@
-#!/bin/bash
-./gradlew nativeImage
-cp build/native-image/data-jdbc-h2 .
+./gradlew assemble
+native-image --no-fallback --class-path build/libs/micronaut-data-jdbc-graal-*-all.jar
