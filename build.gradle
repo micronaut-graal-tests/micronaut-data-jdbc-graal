@@ -58,5 +58,5 @@ java {
 
 nativeImage {
     imageName("data-jdbc-sqlserver")
-    args = ["--report-unsupported-elements-at-runtime", "-H:+AddAllCharsets"]
+    args = ["--report-unsupported-elements-at-runtime", "-H:+AddAllCharsets", "-H:+StaticExecutableWithDynamicLibC"]
 }
