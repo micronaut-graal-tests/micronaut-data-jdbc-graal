@@ -58,4 +58,5 @@ java {
 
 nativeImage {
     imageName("data-jdbc-oracle")
+    args = ["-H:+StaticExecutableWithDynamicLibC"]
 }
