@@ -10,7 +10,7 @@ group "example.jdbc"
 repositories {
     mavenCentral()
     jcenter()
-    maven { url "https://oss.jfrog.org/oss-snapshot-local" }
+    maven { url "https://s01.oss.sonatype.org/content/repositories/snapshots/" }
 }
 
 configurations {
