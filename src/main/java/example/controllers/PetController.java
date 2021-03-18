@@ -1,14 +1,14 @@
 package example.controllers;
 
-import java.util.List;
-import java.util.Optional;
-
 import example.domain.NameDTO;
 import example.domain.Pet;
 import example.repositories.PetRepository;
 import io.micronaut.data.model.Pageable;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
+
+import java.util.List;
+import java.util.Optional;
 
 @Controller("/pets")
 class PetController {
@@ -20,8 +20,8 @@ class PetController {
     }
 
     @Get("/")
-    List<NameDTO> all() {
-        return petRepository.list();
+    List<NameDTO> all(Pageable pageable) {
+        return petRepository.list(pageable);
     }
 
     @Get("/{name}")
