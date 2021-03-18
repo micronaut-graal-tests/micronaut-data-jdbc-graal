@@ -1,14 +1,15 @@
 package example.controllers;
 
-import java.util.List;
-import java.util.Optional;
-
 import example.domain.NameDTO;
 import example.domain.Pet;
 import example.repositories.PetRepository;
-import io.micronaut.data.model.Pageable;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
+
+import java.util.Comparator;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Controller("/pets")
 class PetController {
@@ -21,7 +22,12 @@ class PetController {
 
     @Get("/")
     List<NameDTO> all() {
-        return petRepository.list();
+        // Sort in memory because MSSQL Server doesn't support pageable
+        return petRepository
+                .list()
+                .stream()
+                .sorted(Comparator.comparing(NameDTO::getName))
+                .collect(Collectors.toList());
     }
 
     @Get("/{name}")
