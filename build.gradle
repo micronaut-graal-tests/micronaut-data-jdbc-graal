@@ -58,5 +58,4 @@ java {
 
 nativeImage {
     imageName("data-jdbc-mysql")
-    args = ["-H:+StaticExecutableWithDynamicLibC"]
 }
