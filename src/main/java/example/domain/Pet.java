@@ -1,9 +1,9 @@
 package example.domain;
 
 import io.micronaut.core.annotation.Creator;
+import io.micronaut.core.annotation.Nullable;
 import io.micronaut.data.annotation.AutoPopulated;
 
-import javax.annotation.Nullable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -39,14 +39,14 @@ public class Pet {
     }
 
     public PetType getType() {
-		return type;
-	}
+        return type;
+    }
 
-	public void setType(PetType type) {
-		this.type = type;
-	}
+    public void setType(PetType type) {
+        this.type = type;
+    }
 
-	public void setId(UUID id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
