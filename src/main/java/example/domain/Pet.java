@@ -3,20 +3,20 @@ package example.domain;
 import io.micronaut.core.annotation.Creator;
 import io.micronaut.core.annotation.Nullable;
 import io.micronaut.data.annotation.AutoPopulated;
+import io.micronaut.data.annotation.Id;
+import io.micronaut.data.annotation.MappedEntity;
+import io.micronaut.data.annotation.Relation;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import java.util.UUID;
 
-@Entity
+@MappedEntity
 public class Pet {
 
     @Id
     @AutoPopulated
     private UUID id;
     private String name;
-    @ManyToOne
+    @Relation(Relation.Kind.MANY_TO_ONE)
     private Owner owner;
     private PetType type = PetType.DOG;
 
@@ -49,7 +49,6 @@ public class Pet {
     public void setId(UUID id) {
         this.id = id;
     }
-
 
     public enum PetType {
         DOG,
