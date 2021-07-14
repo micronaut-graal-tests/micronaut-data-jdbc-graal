@@ -21,20 +21,6 @@ configurations {
     all {
         resolutionStrategy {
             eachDependency { DependencyResolveDetails details ->
-                // specifying a fixed version for all libraries with 'io.micronaut.data' group
-                if (details.requested.group == 'io.micronaut.data') {
-                    details.useVersion micronautDataVersion
-                }
-            }
-        }
-    }
-}
-
-configurations {
-    all {
-        resolutionStrategy {
-            eachDependency { DependencyResolveDetails details ->
-                // specifying a fixed version for all libraries with 'io.micronaut.data' group
                 if (details.requested.group == 'io.micronaut.data') {
                     details.useVersion micronautDataVersion
                 }
@@ -44,19 +30,19 @@ configurations {
 }
 
 dependencies {
-    annotationProcessor(enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion"))
+    annotationProcessor(platform("io.micronaut:micronaut-bom:$micronautVersion"))
     annotationProcessor "io.micronaut:micronaut-graal"
     annotationProcessor("io.micronaut:micronaut-inject-java")
     annotationProcessor("io.micronaut:micronaut-validation")
-    annotationProcessor("io.micronaut.data:micronaut-data-processor:$micronautDataVersion")
+    annotationProcessor("io.micronaut.data:micronaut-data-processor")
 
-    implementation(enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion"))
+    implementation(platform("io.micronaut:micronaut-bom:$micronautVersion"))
     implementation("io.micronaut:micronaut-inject")
     implementation("io.micronaut:micronaut-validation")
     implementation("io.micronaut:micronaut-runtime")
     implementation("io.micronaut:micronaut-http-server-netty")
     implementation("io.micronaut:micronaut-http-client")
-    implementation("io.micronaut.data:micronaut-data-jdbc:$micronautDataVersion")
+    implementation("io.micronaut.data:micronaut-data-jdbc")
 
     compileOnly platform("io.micronaut:micronaut-bom:$micronautVersion")
     compileOnly "org.graalvm.nativeimage:svm"
@@ -65,10 +51,10 @@ dependencies {
     runtimeOnly("com.h2database:h2")
     runtimeOnly("io.micronaut.sql:micronaut-jdbc-hikari")
 
-    testAnnotationProcessor(enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion"))
+    testAnnotationProcessor(platform("io.micronaut:micronaut-bom:$micronautVersion"))
     testAnnotationProcessor("io.micronaut:micronaut-inject-java")
 
-    testImplementation(enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion"))
+    testImplementation(platform("io.micronaut:micronaut-bom:$micronautVersion"))
     testImplementation("org.junit.jupiter:junit-jupiter-api")
     testImplementation("io.micronaut.test:micronaut-test-junit5")
 
