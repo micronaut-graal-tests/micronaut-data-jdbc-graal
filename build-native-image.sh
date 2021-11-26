@@ -1,3 +1,3 @@
 #!/bin/bash
-./gradlew nativeImage
-cp build/native-image/data-jdbc-mysql .
+./gradlew nativeCompile
+cp build/native/nativeCompile/data-jdbc-mysql .
