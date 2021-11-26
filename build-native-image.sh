@@ -1,3 +1,3 @@
 #!/bin/bash
 ./gradlew nativeImage
-cp build/native-image/data-jdbc-h2 .
+cp build/native/nativeCompile/data-jdbc-h2 .
