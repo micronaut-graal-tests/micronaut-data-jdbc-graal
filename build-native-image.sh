@@ -1,3 +1,3 @@
 #!/bin/bash
-./gradlew nativeImage
-cp build/native-image/data-jdbc-oracle .
+./gradlew nativeCompile
+cp build/native/nativeCompile/data-jdbc-oracle .
