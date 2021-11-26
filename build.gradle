@@ -1,8 +1,10 @@
 plugins {
     id("com.github.johnrengelman.shadow") version "7.1.0"
-    id("io.micronaut.graalvm") version "3.0.0"
-    id "application"
+    id("io.micronaut.graalvm") version("3.0.0") apply false
+    id("application")
 }
+
+pluginManager.apply("io.micronaut.graalvm")
 
 version "0.1"
 group "example.jdbc"
