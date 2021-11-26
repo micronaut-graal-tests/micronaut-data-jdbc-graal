@@ -1,6 +1,6 @@
 plugins {
     id("com.github.johnrengelman.shadow") version "7.1.0"
-    id("io.micronaut.application") version "2.0.8"
+    id("io.micronaut.application") version "3.0.0"
 }
 
 version = "0.1"
@@ -54,6 +54,10 @@ java {
     targetCompatibility = JavaVersion.toVersion("1.8")
 }
 
-nativeImage {
-    imageName("data-jdbc-mariadb")
+graalvmNative {
+    binaries {
+        main {
+            imageName.set('data-jdbc-mariadb')
+        }
+    }
 }
