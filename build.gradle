@@ -54,6 +54,7 @@ java {
     targetCompatibility = JavaVersion.toVersion("1.8")
 }
 
+graalvmNative.toolchainDetection = false
 graalvmNative {
     binaries {
         main {
