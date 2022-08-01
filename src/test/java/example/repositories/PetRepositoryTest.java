@@ -3,7 +3,7 @@ package example.repositories;
 import example.domain.Pet;
 import io.micronaut.context.BeanContext;
 import io.micronaut.data.annotation.Query;
-import io.micronaut.test.annotation.MicronautTest;
+import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import org.junit.jupiter.api.Test;
 
 import javax.inject.Inject;
